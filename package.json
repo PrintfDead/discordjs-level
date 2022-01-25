@@ -1,0 +1,19 @@
+{
+  "name": "discordjs-level",
+  "version": "1.1.0",
+  "description": "",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["discord", "discordjs", "printf", "level"],
+  "author": "PrintfDead",
+  "license": "GNU",
+  "dependencies": {
+    "canvacord": "^5.2.3",
+    "discord.js": "^13.6.0",
+    "fs": "^0.0.1-security",
+    "json": "^11.0.0",
+    "path": "^0.12.7"
+  }
+}

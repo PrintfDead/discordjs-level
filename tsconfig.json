@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "target": "es2020",
+    "moduleResolution": "Node",
+    "outDir": "build",
+    "strict": true,
+    "allowJs": true,
+    "baseUrl": "./src",
+    "declaration": true,   
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "declarationDir": "./typings",
+    "typeRoots": [
+      "node_modules/@types",
+      "json",
+      "path",
+      "fs",
+      "discord.js"
+    ],
+    "types": ["node"]
+  },
+  "lib": ["es2020"]
+}
