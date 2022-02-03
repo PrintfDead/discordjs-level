@@ -1,11 +1,12 @@
 {
   "name": "discordjs-level",
-  "version": "1.1.0",
-  "description": "",
+  "version": "1.3.0",
+  "description": "A simple library for interacting with Discord's Leveling system",
   "main": "build/index.js",
   "source": "build/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node build/index.js"
   },
   "keywords": [
     "discord",
@@ -16,13 +17,9 @@
   "author": "PrintfDead",
   "license": "GNU",
   "dependencies": {
-    "canvacord": "^5.2.3",
     "discord.js": "^13.6.0",
     "fs": "^0.0.1-security",
     "json": "^11.0.0",
     "path": "^0.12.7"
-  },
-  "devDependencies": {
-    "jest": "^27.4.7"
   }
 }

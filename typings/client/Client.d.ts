@@ -1,19 +1,8 @@
-/// <reference types="node" />
-import { Client as client } from 'discord.js';
-import events from 'node:events';
-/**
- * @types {BaseData} object
- * @param client {Client Class}
- * @param data {BaseData Type}
- * @param prefix {string}
- * @param database {object}
- */
-declare type BaseData = object;
-export default class Base extends events {
-    client: client;
-    protected database: object;
-    data: BaseData;
+import BaseClient from "./BaseClient";
+import { Client } from 'discord.js';
+export default class LevelClient extends BaseClient {
+    client: Client;
     prefix: string;
-    constructor(Client: client, prefix: string);
+    protected data: any;
+    constructor(client: Client, prefix: string, data?: any);
 }
-export {};
