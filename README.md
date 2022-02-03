@@ -65,7 +65,8 @@ const App = new Client(client, 'prefix', {xp: 68, limitXp: 100, defaultLevel: 1}
  * @decrepated App.data
  * @new App.getData()
  */
-let data = App.getData();
+//let data = App.getData[<GuildID>, <UserID>].propieties;
+//let data = App.getData[<GuildID>, <UserID>]['xp'];
 /*
 data[<Message>.guild.id + <Message>.author.id].xp;
 Or use
@@ -87,8 +88,7 @@ App.db[<Message>.guidl.id + <Message>.author.id].xp;
 
 App.on('levelMessage', (message, db, user) => {
     message.channel.send('WOW, ' + user.tag + ' Level UP ' + db[message.guild.id + user.id].level);
-})
-
+});
 ```
 
 ## It was done with the purpose of simplifying the use of the experience

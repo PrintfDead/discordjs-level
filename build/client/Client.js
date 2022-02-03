@@ -4,21 +4,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const BaseClient_1 = __importDefault(require("./BaseClient"));
-const { levelCreate } = require('../util/Defines');
+const discord_js_1 = require("discord.js");
+const { Events } = require('../util/Defines');
 class LevelClient extends BaseClient_1.default {
-    constructor(client, prefix, data = {}) {
+    constructor(client, prefix, db = {}) {
         super();
         this.client = client;
         this.prefix = prefix;
-        this.data = data;
-        if (typeof this.data[0] === "undefined") {
-            this.data = {
+        if (typeof this.db[0] === "undefined") {
+            this.db = {
                 xp: 68,
                 limitXP: 100,
                 defaultLevel: 1,
             };
         }
-        new levelCreate(this.client).handle(this.data);
+        this.handle(db, () => this.emit(Events.LEVEL_CREATED, discord_js_1.Message, db));
     }
 }
 exports.default = LevelClient;

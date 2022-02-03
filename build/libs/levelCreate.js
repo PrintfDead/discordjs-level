@@ -17,49 +17,21 @@ client.on('levelCreated', (message, data) => {
     if (!db[message.guild.id + message.author.id]) {
         db[message.guild.id + message.author.id] = {
             xp: 0,
-            level: data.defaultLevel,
-            limitXP: data.limitXP,
+            level: data.defualtLevel,
+            limitLevelUp: data.limitXP,
         };
     }
     db[message.guild.id + message.author.id].xp += data.xp;
-    if (db[message.guild.id + message.author.id].xp >= db[message.guild.id + message.author.id].limitXP) {
-        db[message.guild.id + message.author.id].xp = 0;
-        db[message.guild.id + message.author.id].level++;
-        db[message.guild.id + message.author.id].limitXP *= 2;
+    let infoBD = db[message.guild.id + message.author.id];
+    if (infoBD.xp > db[message.guild.id + message.author.id].limitLevelUp) {
+        infoBD.limitLevelUp *= 2;
+        infoBD.xp = 0;
+        infoBD.level++;
         client.emit('levelMessage', message, db, message.author);
     }
-    fs_1.default.writeFileSync(__dirname + '/../json/data.json', json5_1.default.stringify(db, (x) => {
+    fs_1.default.writeFile(__dirname + '/../json/bd.json', json5_1.default.stringify(db), (x) => {
         if (x)
-            new Error(x);
-        if (typeof x === "undefined")
-            return undefined;
-    }));
-});
-/*export default function levelCreate(exp: number) {
-    client.on('levelCreate', (message: Message | any) => {
-        if (message.channel.type === "DM") return;
-
-        if (!db[message.guild.me.id + message.author.id]) {
-            db[message.guild.me.id + message.author.id] = {
-                xp: 0,
-                level: 0,
-                limitLevelUp: 50,
-            };
-        }
-
-        db[message.guild.me.id + message.author.id].xp += exp;
-
-        let infoBD = db[message.guild.me.id + message.author.id];
-
-        if(infoBD.xp > 50) {
-            infoBD.limitLevelUp *= 2;
-            infoBD.level++;
-            infoBD.xp = 0;
-        }
-
-        fs.writeFile(__dirname + '/../json/bd.json', JSON.stringify(db), (x: any) => {
-            if (x) console.error(x);
-        })
+            console.error(x);
     });
-}*/ 
+});
 //# sourceMappingURL=levelCreate.js.map

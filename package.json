@@ -17,9 +17,11 @@
   "author": "PrintfDead",
   "license": "GNU",
   "dependencies": {
+    "@types/json5": "^2.2.0",
     "discord.js": "^13.6.0",
     "fs": "^0.0.1-security",
     "json": "^11.0.0",
+    "json5": "^2.2.0",
     "path": "^0.12.7"
   }
 }

@@ -9,5 +9,4 @@ exports.Events = {
     LEVEL_DESTROYED: 'levelDestroyed',
     LEVEL_MESSAGE: 'levelMessage'
 };
-exports.levelCreate = require('../client/events/levelCreate');
 //# sourceMappingURL=Defines.js.map
